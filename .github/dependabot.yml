@@ -1,0 +1,32 @@
+version: 2
+registries:
+  npm-registry-npm-pkg-github-com:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_TOKEN}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: bull
+    versions:
+    - 3.20.0
+    - 3.20.1
+    - 3.21.0
+    - 3.21.1
+    - 3.22.0
+    - 3.22.1
+    - 3.22.3
+  - dependency-name: express-handlebars
+    versions:
+    - 5.2.0
+    - 5.2.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  registries:
+  - npm-registry-npm-pkg-github-com
